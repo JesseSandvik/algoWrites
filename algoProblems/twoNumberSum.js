@@ -43,7 +43,7 @@ const searchData = require("./searchData");
  *  8) if no two elements in the sorted sequence sum to equal the target,
  *  I will return an empty array.
  * 
- * function twoNumberSum
+ * function twoNumberSumBinary
  *  input: sequence - an unsorted array of numbers
  *  input: target - a number
  * 
@@ -63,7 +63,8 @@ const searchData = require("./searchData");
  *  8) If no two elements equal the target, return an empty array.
  */
 
-function twoNumberSum(sequence, target) {
+//  Time: O(nlog(n)) | Space: O(1)
+function twoNumberSumBinary(sequence, target) {
     sequence.sort((a, b) => a - b);
     let firstIndex = 0;
     let lastIndex = sequence.length - 1;
@@ -82,5 +83,11 @@ function twoNumberSum(sequence, target) {
     return [];
 }
 
-console.log(twoNumberSum(searchData.sequenceOne, 14));
-console.log(twoNumberSum(searchData.sequenceTwo, 0));
+console.log(twoNumberSumBinary(searchData.sequenceOne, 14));
+console.log(twoNumberSumBinary(searchData.sequenceTwo, 0));
+
+/**
+ * The binary search solution works, and would be ideal if space is a concern.
+ * However, a hash table approach would be more efficient in terms of time complexity,
+ * the trade off being that a hash table will take up O(n) space.
+ */
