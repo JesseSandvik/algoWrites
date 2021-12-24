@@ -1,4 +1,4 @@
-const searchData = require("./searchData");
+const data = require("./data");
 
 /**
  * I want the sum of two numbers in a sequence to equal a target number.
@@ -17,9 +17,9 @@ const searchData = require("./searchData");
  * 
  *  Sorting will impact the time complexity.
  * 
- *  2) I will assign a variable to the first index of the sorted sequence.
+ *  2) I will initialize a variable and assign it to the first index of the sorted sequence.
  * 
- *  3) I will assign a variable to the last index of the sorted sequence.
+ *  3) I will initialize a variable and assign it to the last index of the sorted sequence.
  * 
  *  4) I will iterate through the sorted sequence,
  *  as long as the first index is less than or equal to the last index.
@@ -83,8 +83,8 @@ function twoNumberSumBinary(sequence, target) {
     return [];
 }
 
-console.log(twoNumberSumBinary(searchData.sequenceOne, 14));
-console.log(twoNumberSumBinary(searchData.sequenceTwo, 0));
+console.log(twoNumberSumBinary(data.sequenceOne, 14));
+console.log(twoNumberSumBinary(data.sequenceTwo, 0));
 
 /**
  * The binary search solution works, and would be ideal if space is a concern.
