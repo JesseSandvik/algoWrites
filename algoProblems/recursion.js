@@ -29,6 +29,50 @@ const data = require("./data");
  * 
  *  Because recursion is a problem-solving method that repeatedly calls itself,
  *  it can be very easy to write a function incorrectly that results in an infinite loop.
- *  Remember to establish a base case before running your code.
+ *  Remember to establish a base case(s) early.
  *
+ *  Factorial:
+ *  the product of all positive integers less than or equal to a given positive integer(n),
+ *  and denoted by that integer(n) and an exclamation point(n!).
+ * 
+ *  Therefore, 5 factorial, or 5!, would be:
+ *      - 5! = 5(4)(3)(2)(1)
+ *      - 5 x 4 = 20, 20 x 3 = 60, 60 x 2 = 120, 120 x 1 = 120.
+ *      - 5! = 120
+ * 
+ *  So let's build out our solution.
+ * 
+ *  1) If the input is less than or equal to 1, return 1.
+ *      - this is a our base case. The function will terminate here.
+ *      - we know that only positive integers are inputs,
+ *      and that 1 factorial is 1. So we end here.
+ * 
+ *  2) Multiply the input by the result of the recursed function,
+ *  while decrementing the input of the recursed function by 1 each time it is executed.
+ * 
+ *  3) Return the result.
+ * 
+ */
+
+// Time: O(n) | Space: O(n)
+function factorial(integer) {
+    if (integer <= 1) {
+        return 1;
+    }
+    let numberMinusFactorial = factorial(integer - 1);
+    return integer * numberMinusFactorial;
+}
+
+console.log(factorial(5));
+console.log(factorial(10));
+
+/**
+ * Recursion is in essence a brute-force method,
+ * and recursive problems are known to soak up a lot of space.
+ * 
+ * "Loops may achieve a performance gain for your program,
+ *  recursion may achieve a performance gain for your programmer."
+ * 
+ * Memoization is a trick to help with the inherent space inefficiency of recursion.
+ * This topic is covered more in dynamic programming.
  */
