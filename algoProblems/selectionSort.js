@@ -8,7 +8,7 @@ const data = require("./data");
  * 
  * **Solve the problem before writing the code. Write your pseudocode here.**
  * 
- *  This problem is solved using the selection sort algorithm.
+ *  This problem is solved as an example of the selection sort algorithm.
  * 
  *  This problem can be solved by dividing the list into two sublists,
  *  one list will contain the unsorted elements, one list will contain the sorted elements.
