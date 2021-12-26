@@ -19,11 +19,20 @@ const data = require("./data");
  *  1) I will initialize a variable and assign it the first index of the unsorted sublist.
  *  Since the entire list begins unsorted, this will be the first index of the input array/list.
  * 
- *  2) If I want to sort the array/list in ascending order,
- *  I will iterate through the input list/array to find the index of the smallest element and assign it to a variable.
+ *  2) I will have to iterate through the input list/array two times;
  * 
- *  If I want to sort the array/list in descending order,
- *  I will iterate through the input list/array to find the index of the largest element and assign it to a variable.
+ *  If I'm sorting the list list in ascending order,
+ *  one interation will be to find the index of the smallest element.
  * 
- *  1) Initialize a variable and assign it to the first index of the unsorted sublist.
+ *  If I'm sorting the list in descending order,
+ *  one iteration will be to find the index of the largest element.
+ * 
+ *  Regardless, the second iteration will be used to swap the smallest/largest element,
+ *  with the first index of the unsorted sublist.
+ * 
+ *  The second iteration will end when the first index of the unsorted sublist,
+ *  is no longer less than the last index of the unsorted sublist.
+ *  This conclusion will mean that all elements are now in the sorted sublist.
+ * 
+ *  3) Return the sorted list/array.
  */
