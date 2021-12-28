@@ -83,11 +83,91 @@ function twoNumberSumBinary(sequence, target) {
     return [];
 }
 
-console.log(twoNumberSumBinary(data.sequenceOne, 14));
-console.log(twoNumberSumBinary(data.sequenceTwo, 0));
-
 /**
  * The binary search solution works, and would be ideal if space is a concern.
  * However, a hash table approach would be more efficient in terms of time complexity,
  * the trade off being that a hash table will take up O(n) space.
  */
+
+ function stringSize(str) {
+    return str.length * 2;
+}
+
+function objectSize(obj) {
+    return stringSize(JSON.stringify(obj));
+}
+
+function twoNumberSumHash(array, target) {
+    const nums = new Map();
+
+    array.forEach((item) => {
+        const potentialMatch = target - item;
+
+        if (nums.has(potentialMatch)) {
+            console.log(objectSize(nums));
+            return [potentialMatch, item];
+        } else {
+            nums.set(item);      
+        }
+    })
+    return [];
+}
+
+function twoNumberSumHashLoop(array, target) {
+    const nums = new Map();
+
+    for (let i = 0; i < array.length; i++) {
+        const potentialMatch = target - array[i];
+        
+        if (nums.has(potentialMatch)) {
+            console.log(objectSize(nums));
+            return [potentialMatch, array[i]];
+        } else {
+            nums.set(array[i]);
+        }
+    }
+    return [];
+}
+
+function twoNumberSumHashObj(array, target) {
+    const nums = {};
+
+    for (const num of array) {
+        const potentialMatch = target - num;
+        if (potentialMatch in nums) {
+            console.log(objectSize(nums));
+            return [potentialMatch, num];
+        } else {
+            nums[num] = true;
+        }
+    }
+    return [];
+}
+
+function twoNumberSumHashObjLoop(array, target) {
+    const nums = {};
+
+    for (let i = 0; i < array.length; i++) {
+        const potentialMatch = target - array[i];
+        if (potentialMatch in nums) {
+            console.log(objectSize(nums));
+            return [potentialMatch, array[i]];
+        } else {
+            nums[array[i]] = true;
+        }
+    }
+    return [];
+}
+
+/*console.time("Map Loop");
+twoNumberSumHashLoop(data.sequenceOne, 12);
+console.timeEnd("Map Loop");
+console.time("Map");
+twoNumberSumHash(data.sequenceOne, 12);
+console.timeEnd("Map");
+console.time("Object");
+twoNumberSumHashObj(data.sequenceOne, 12);
+console.timeEnd("Object");*/
+console.time("Object Loop");
+twoNumberSumHashObjLoop(data.sequenceOne, 12);
+console.timeEnd("Object Loop");
