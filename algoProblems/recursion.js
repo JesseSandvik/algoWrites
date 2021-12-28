@@ -113,9 +113,18 @@ function findLargest(array) {
     }
 }
 
-console.log(sumOfAllElements(data.sequenceOne));
-console.log(sum(data.sequenceOne));
-console.log(recursionSum.sum());
-console.log(count(data.sequenceOne));
-console.log(findLargest(data.sequenceOne));
-console.log(findLargest(data.sequenceTwo));
+function recursiveBinarySearch(n, arr) {
+    let mid = Math.floor(arr.length / 2);
+  if (arr.length === 1 && arr[0] != n) {
+      return false;
+    }
+    if (n === arr[mid]) {
+      return true;
+    } else if (n < arr[mid]) {
+      return recursiveBinarySearch(n, arr.slice(0, mid));
+    } else if (n > arr[mid]) {
+      return recursiveBinarySearch(n, arr.slice(mid));
+    }
+}
+
+console.log(recursiveBinarySearch(5, data.sequenceOne));
