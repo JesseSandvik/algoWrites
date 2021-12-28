@@ -63,9 +63,6 @@ function factorial(integer) {
     return integer * numberMinusFactorial;
 }
 
-console.log(factorial(5));
-console.log(factorial(10));
-
 /**
  * Recursion is in essence a brute-force method,
  * and recursive problems are known to soak up a lot of space.
@@ -76,3 +73,49 @@ console.log(factorial(10));
  * Memoization is a trick to help with the inherent space inefficiency of recursion.
  * This topic is covered more in dynamic programming.
  */
+
+function sumOfAllElements(array) {
+    if (array.length === 0) return 0;
+
+    return array[0] + sumOfAllElements(array.slice(1));
+}
+
+const sum = (array) => {
+    return array.length === 0 ? 0 : array[0] + sum(array.slice(1));
+}
+
+const recursionSum = {
+    arrayOfInt: data.sequenceOne,
+    sum() {
+        const array = this.arrayOfInt;
+        if (array.length === 0) {
+            return 0;
+        }
+        return array[0] + sum(array.slice(1));
+    }
+}
+
+function count(list) {
+    if (list.length === 0) {
+        return 0;
+    }
+    return 1 + count(list.slice(1));
+}
+
+function findLargest(array) {
+    if (array.length === 1) {
+        return array[0];
+    } else if (array[0] >= array[array.length - 1]) {
+        array.pop();
+        return findLargest(array);
+    } else {
+        return findLargest(array.slice(1));
+    }
+}
+
+console.log(sumOfAllElements(data.sequenceOne));
+console.log(sum(data.sequenceOne));
+console.log(recursionSum.sum());
+console.log(count(data.sequenceOne));
+console.log(findLargest(data.sequenceOne));
+console.log(findLargest(data.sequenceTwo));
